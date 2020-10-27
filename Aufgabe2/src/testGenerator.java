@@ -23,7 +23,7 @@ public class testGenerator {
                 if (oLength < 8) {
 
                     for (int k = 0; k < (8 - oLength); k++) {
-                        writer.write("set a"+k+ " 0\n");
+                        writer.write("set a"+k+ " 0,\n");
 
                     }
                     int save = 8-oLength;
@@ -43,6 +43,12 @@ public class testGenerator {
                 output = Integer.toBinaryString(binary);
                 oLength = output.length();
             }
+
+            for (int k = 0; k < 8; k++) {
+                writer.write("set a"+k+ " 1,\n");
+
+            }
+            writer.write("eval,\noutput;\n\n");
             writer.close();
         } catch(IOException e) {
             System.out.println("Error occurred");
