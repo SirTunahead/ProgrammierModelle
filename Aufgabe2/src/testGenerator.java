@@ -17,21 +17,23 @@ public class testGenerator {
                     "b%B3.1.3\n" +
                     "c%B3.1.3\n\n");
             String output = Integer.toBinaryString(binary);
-            int oLenght = output.length();
+            int oLength = output.length();
             for(int i = 0; i < 255; i++) {
 
-                if (oLenght < 8) {
+                if (oLength < 8) {
 
-                    for (int k = 0; k < (8 - oLenght); k++) {
+                    for (int k = 0; k < (8 - oLength); k++) {
                         writer.write("set a"+k+ " 0\n");
-                        int save = k;
-                    }
 
-                    for (int j = 0; j < oLenght; j++) {
-                        System.out.println("lenght: "+oLenght);
+                    }
+                    int save = 8-oLength;
+                    for (int j = 0; j < oLength; j++) {
+
                         output = Integer.toBinaryString(binary);
                         System.out.println(binary);
-                        writer.write("set a"+(j)+ " " + output.charAt(j) + ",\n");
+
+
+                        writer.write("set a"+(save+j)+ " " + output.charAt(j) + ",\n");
                     }
                     writer.write("eval,\noutput;\n\n");
 
@@ -39,7 +41,7 @@ public class testGenerator {
                 binary++;
 
                 output = Integer.toBinaryString(binary);
-                oLenght = output.length();
+                oLength = output.length();
             }
             writer.close();
         } catch(IOException e) {
