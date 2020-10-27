@@ -9,7 +9,7 @@ public class compareTable {
     public void initCompare(File tableCompFile){
         try{
             FileWriter writer = new FileWriter(tableCompFile.getAbsolutePath());
-            writer.write("|   a1  |   a2  |  a3   |   a4  |   a5  |  a6   |   a7  |   a8  |");
+            writer.write("|   a0  |   a1  |  a2   |   a3  |   a4  |  a5   |   a6  |   a7  |");
             writer.write(String.format("%n"));
             writer.write("|   0   |   0   |  0    |   0   |   0   |  0    |   0   |   0   |");
             writer.write(String.format("%n"));
