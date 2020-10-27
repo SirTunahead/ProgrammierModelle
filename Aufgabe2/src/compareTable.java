@@ -11,7 +11,7 @@ public class compareTable {
             FileWriter writer = new FileWriter(tableCompFile.getAbsolutePath());
             writer.write("|   a0  |   a1  |  a2   |   a3  |   a4  |  a5   |   a6  |   a7  |");
             writer.write(String.format("%n"));
-            writer.write("|   0   |   0   |  0    |   0   |   0   |  0    |   0   |   0   |");
+            writer.write("|   0   |   0   |  0    |   0   |   0   |   0   |   0   |   0   |");
             writer.write(String.format("%n"));
             int a = 0;
 
