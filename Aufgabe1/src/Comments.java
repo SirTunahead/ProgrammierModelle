@@ -28,8 +28,7 @@ public class Comments {
                     String myScannerValue = "";
                     myScannerValue = scanner.next();
                     Matcher matcher = pattern.matcher(myScannerValue.substring(0,19));
-                    //System.out.println(matches);
-                    //if(scanner.hasNext(pattern)){
+
                     if(matcher.matches()){
                         //System.out.println(com.getName());
                         com.setName(myScannerValue);
@@ -60,11 +59,6 @@ public class Comments {
                 return  zahl1.getTime().compareTo(zahl2.getTime());
             }
         });
-        /*
-        for(int i = 0; i < commentsList.size(); i++){
-            System.out.println(commentsList.get(i).getName());
-        }
-         */
 
         System.out.println("Es gab: "+commentsList.size()+" viele Eintraege");
         System.out.println("Der aelteste Eintrag lautet: "+commentsList.get(commentsList.size()-1).getName());
