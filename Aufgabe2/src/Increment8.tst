@@ -1,8 +1,7 @@
 load Increment8.hdl,
 output-file Increment8.out,
 compare-to Increment8.cmp,
-output-list a%B3.8.3
-out%B3.8.3;
+output-list a%B1.8.1 out%B1.8.1 overflow%B4.1.5;
 
 set a %B00000000,
 eval,
@@ -1021,6 +1020,10 @@ eval,
 output;
 
 set a %B11111110,
+eval,
+output;
+
+set a %B11111111,
 eval,
 output;
 
