@@ -17,12 +17,12 @@ public class UnmodifiableFraction implements Fraction {
     }
 
     public void setNumerator(int numerator) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("Some one tried to change a numerator...");
 
     }
 
     public void setDominator(int denominator) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("Some one tried to change a denominator...");
     }
 
     public String toString(){
