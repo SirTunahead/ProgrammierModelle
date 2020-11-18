@@ -13,7 +13,7 @@ public class Comments {
     public static void main(String[] args) {
 
         ArrayList<Comment> commentsList = new ArrayList<Comment>();
-        File file = new File("D:\\Uni\\ProgrammierModelle\\Aufgabe1\\src\\comments.txt");
+        File file = new File("E:\\Uni\\ProgrammierModelle\\Aufgabe1\\src\\comments.txt");
 
         //um das Datum heraus zu finden
         String myPatternString = "^\\d{4}-\\d{2}-(0[1-9]|1\\d|2\\d|3[0-1])T(0\\d|1\\d|2[0-4]):([0-5]\\d):([0-5]\\d$)";
@@ -22,26 +22,26 @@ public class Comments {
 
 
         try {
-                Scanner scanner = new Scanner(file);
-                while(scanner.hasNextLine()) {
-                    Comment com = new Comment();
-                    String myScannerValue = "";
-                    myScannerValue = scanner.next();
-                    Matcher matcher = pattern.matcher(myScannerValue.substring(0,19));
+            Scanner scanner = new Scanner(file);
+            while(scanner.hasNextLine()) {
+                Comment com = new Comment();
+                String myScannerValue = "";
+                myScannerValue = scanner.next();
+                Matcher matcher = pattern.matcher(myScannerValue.substring(0,19));
 
-                    if(matcher.matches()){
-                        //System.out.println(com.getName());
-                        com.setName(myScannerValue);
-                        com.setTime(Long.parseLong(myScannerValue.substring(0,19).replaceAll("[-,T,:]","")));
-                        //System.out.println("Time: "+ com.getTime());
-                        commentsList.add(com);
-                        //System.out.println(myScannerValue);
-                    }
-                    scanner.nextLine();
-                    com = null;
+                if(matcher.matches()){
+                    //System.out.println(com.getName());
+                    com.setName(myScannerValue);
+                    com.setTime(Long.parseLong(myScannerValue.substring(0,19).replaceAll("[-,T,:]","")));
+                    //System.out.println("Time: "+ com.getTime());
+                    commentsList.add(com);
+                    //System.out.println(myScannerValue);
                 }
+                scanner.nextLine();
+                com = null;
+            }
 
-                scanner.close();
+            scanner.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
