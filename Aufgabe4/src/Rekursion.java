@@ -23,10 +23,30 @@ public class Rekursion {
         return result;
     }
 
+    static public String replaceUmlautRek(String s, int n, int counter, String result){
+        //System.out.println(n);
+        //System.out.println(s);
+
+        if(n > 0) {
+          //System.out.println("n: "+n);
+          result += substitute(s.charAt(counter));
+          counter++;
+          //System.out.println("counter"+counter);
+          //System.out.println("sub String: "+result);
+         return replaceUmlautRek(s,n-1, counter, result);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-
-        String test = replaceUmlautIterative("äeaeaedaäöööööö");
-
-        System.out.println(test);
+        String result = "";
+        String input = "äeäeäadäada#dawäwqp+qä#dqü+q#q+eüq+eqüelq+#qeüqe+e#qü+q#";
+        int counter = 0;
+        int i = input.length();
+        String test = replaceUmlautIterative(input);
+        String testRek = replaceUmlautRek(input, i, counter, result);
+        System.out.println("input  : "+input);
+        System.out.println("test   : "+test);
+        System.out.println("testRek: "+testRek);
     }
 }
