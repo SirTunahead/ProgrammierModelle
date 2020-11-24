@@ -1,0 +1,3 @@
+mit dem Befehl gcc (dateiname) -S -=3
+oder 
+mit dem Befehl gcc (dateiname) -S -03*
