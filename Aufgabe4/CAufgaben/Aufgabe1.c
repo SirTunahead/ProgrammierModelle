@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int recursion(int g, int n){
-    if(n>1) return g = recursion(2*g, n-1)+recursion(3*g,n-2);
-    return g;
+int recursion(int n){
+    if(n>1) return ((2*recursion(n-1))+3*(recursion(n-2)));
+    return n;
 }
 
 int iterative(int g, int n){
@@ -24,17 +24,13 @@ int tailrecursion(int n){
 }
 
 int main(){
-    int g = 1;
     
     int n = 5;
-    printf("%d recusive\n",recursion(g,n));
+    printf("%d recusive\n",recursion(n));
 
-    g = 1;
-    n = 5;
-    printf("%d iterative\n",iterative(g,n));
 
-    g = 1;
-    n = 5;
+    printf("%d iterative\n",iterative(1,n));
+
     printf("%d tailrec\n", tailrecursion(n));
    return 0;
 }
