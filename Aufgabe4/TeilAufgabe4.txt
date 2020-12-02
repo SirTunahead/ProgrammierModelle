@@ -1,3 +1,5 @@
-mit dem Befehl gcc (dateiname) -S -=3
-oder 
-mit dem Befehl gcc (dateiname) -S -03*
+gcc -masm=intel -S -O3 Aufgabe1.c
+
+grep "g_help" Aufgabe1.s
+
+Javap -c Rekursion.class
