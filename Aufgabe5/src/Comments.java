@@ -60,7 +60,7 @@ public class Comments {
 
         System.out.println("Es gab: " + commentsList.size() + " viele Eintraege");
         System.out.println("Der aelteste Eintrag lautet: " + commentsList.get(commentsList.size() - 1).getName());
-        System.out.print("Count von StringList: " + counter.countComments(529590," Baoping", "LOL", commentsList, pattern));
+        System.out.print("Count von StringList: " + counter.countComments(529590,"LOL", "Baoping", commentsList, pattern));
 
         //System.out.println("Max Values: "+maxValues);
         //counter.initCommentsCounter(commentsList);
