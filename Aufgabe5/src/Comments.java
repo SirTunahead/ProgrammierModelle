@@ -1,13 +1,12 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Comments {
+
 
     public void function(File file, Pattern pattern, ArrayList<Comment> commentsList) {
         CommentsCounter counter = new CommentsCounter();
@@ -30,12 +29,11 @@ public class Comments {
                     commentsList.add(com);
                     //System.out.println(myScannerValue);
 
-                    //ULTRA HACKY WAY SHOULD FIX THAT
+                    /*Aufgabe 2 von Abgabe 5
                     values = counter.countComments(com.getTime(), com.getName(), com.getUser());
-                    maxValues += values;
+                    maxValues += values; */
                 }
                 scanner.nextLine();
-                com = null;
             }
 
             scanner.close();
@@ -56,8 +54,15 @@ public class Comments {
             }
         });
 
+
+
+
+
         System.out.println("Es gab: " + commentsList.size() + " viele Eintraege");
         System.out.println("Der aelteste Eintrag lautet: " + commentsList.get(commentsList.size() - 1).getName());
-        System.out.println("Max Values: "+maxValues);
+        System.out.print("Count von StringList: " + counter.countComments(529590," Baoping", "LOL", commentsList, pattern));
+
+        //System.out.println("Max Values: "+maxValues);
+        //counter.initCommentsCounter(commentsList);
     }
 }

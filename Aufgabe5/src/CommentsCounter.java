@@ -1,25 +1,31 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.LongStream;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class CommentsCounter {
 
-    long countComments(long id, String from, String to){
 
-        long idCounter = LongStream
-                .of(id)
-                .count();
+    ArrayList<String> convertCommentsToString(ArrayList<Comment> commentList){
+        ArrayList<String> stringList = new ArrayList<String>();
 
-        long fromCounter = Arrays
-                .asList(from)
+        for( int i = 0; i < commentList.size(); i++){
+
+            String input = commentList.get(i).getName()+ " " +commentList.get(i).getTime();
+            stringList.add(input);
+        }
+        return stringList;
+    }
+
+    long countComments(long id, String from, String to, ArrayList<Comment> commentList, Pattern pattern) {
+
+        ArrayList<String> stringList = convertCommentsToString(commentList);
+
+        long count = stringList
                 .stream()
+                .filter(s -> pattern.matcher(s).find())
                 .count();
 
-        long toCounter = Arrays.asList(from)
-                .stream()
-                .count();
-
-        long megaCounter = idCounter + fromCounter + toCounter;
-
-        return megaCounter;
+        return count;
     }
 }

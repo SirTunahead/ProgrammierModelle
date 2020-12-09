@@ -1,5 +1,5 @@
 gcc -masm=intel -S -O3 Aufgabe1.c
 
-grep "g_help" Aufgabe1.s
+grep "tail_help" Aufgabe1.s
 
 Javap -c Rekursion.class

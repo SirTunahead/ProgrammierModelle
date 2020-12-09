@@ -1,19 +1,19 @@
 public class UnmodifiableFraction implements Fraction {
 
-    private int numerator, denominator;
+    private Fraction fraction;
 
     //Copy Constructor
-    UnmodifiableFraction(FractionImplementation fr){
-        this.numerator = fr.getNumerator();
-        this.denominator = fr.getDenominator();
+    UnmodifiableFraction(Fraction fr){
+        this.fraction = fr;
+
     }
 
     public  int getNumerator() {
-        return numerator;
+        return fraction.getNumerator();
     }
 
     public int getDenominator() {
-        return denominator;
+        return fraction.getDenominator();
     }
 
     public void setNumerator(int numerator) {
@@ -26,7 +26,7 @@ public class UnmodifiableFraction implements Fraction {
     }
 
     public String toString(){
-        return numerator+"/"+denominator;
+        return fraction.toString();
     }
 }
 

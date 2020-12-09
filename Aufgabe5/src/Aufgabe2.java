@@ -8,7 +8,7 @@ public class Aufgabe2 {
 
         Comments comments = new Comments();
         ArrayList<Comment> commentsList = new ArrayList<Comment>();
-        File file = new File("E:\\Uni\\ProgrammierModelle\\Aufgabe1\\src\\comments.txt");
+        File file = new File("/home/ralf/Documents/Uni/ProgrammierModelle/Aufgabe1/src/comments.txt");
 
         //um das Datum heraus zu finden
         String myPatternString = "^\\d{4}-\\d{2}-(0[1-9]|1\\d|2\\d|3[0-1])T(0\\d|1\\d|2[0-4]):([0-5]\\d):([0-5]\\d$)";

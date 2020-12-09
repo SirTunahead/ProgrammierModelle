@@ -35,7 +35,7 @@ int tailrecursion(int n){
 
 int main(){
     
-    int n = 30;
+    int n = 5;
     printf("%d recusive\n",recursion(n));
     printf("%d iterative\n",iterative(1,n));
     printf("%d tailrec\n", tailrecursion(n));
