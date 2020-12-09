@@ -1,10 +1,11 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class Aufgabe2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Comments comments = new Comments();
         ArrayList<Comment> commentsList = new ArrayList<Comment>();

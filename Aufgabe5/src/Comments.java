@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 public class Comments {
 
 
-    public void function(File file, Pattern pattern, ArrayList<Comment> commentsList) {
+    public void function(File file, Pattern pattern, ArrayList<Comment> commentsList) throws IOException {
         CommentsCounter counter = new CommentsCounter();
         long values;
         long maxValues = 0;
