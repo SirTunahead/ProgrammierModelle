@@ -11,7 +11,12 @@ import java.util.stream.Stream;
 public class CommentsCounter {
 
    void convertStringToComment(String s){
+    Comment comment = new Comment();
 
+    long time = Long.parseLong(s.substring(0, 19).replaceAll("[-,T,:]", ""));
+    System.out.println("Long Time: "+time);
+    comment.setTime(time);
+    comment.setName(s);
     }
 
 
@@ -28,20 +33,20 @@ public class CommentsCounter {
         return undmod;
     }
 
-    long countComments(long id, String from, String to, ArrayList<Comment> commentList, Pattern pattern) throws IOException {
+    long countComments(long id, String from, String to) throws IOException {
 
-        List<String> stringList = convertCommentsToString(commentList);
+//        List<String> stringList = convertCommentsToString(commentList);
 
-        String search = pattern+"|"+id+"|/d*|"+from+"|"+to;
+        convertStringToComment(to);
+        convertStringToComment(from);
+
         // String search = "2010-02-09T04:05:20.777+0000|529590|2886|LOL|Baoping";
-        System.out.println(search);
-        Pattern searchPattern = Pattern.compile(search);
+        String searchFrom = from+"|"+id+"|/d*|/d*|/w*|/w*";
+        String searchTo = to+"|"+id+"|/d*|/d*|/w*|/w*";
+        System.out.println(searchFrom);
+        Pattern searchPattern = Pattern.compile(searchFrom);
+        Pattern searchPatternTo = Pattern.compile(searchTo);
 
-       /* long count = stringList
-                .stream()
-                .filter(s -> searchPattern.matcher(s).find())
-                .count();
-            */
 
         Path path = Paths.get("/home/ralf/Documents/Uni/ProgrammierModelle/Aufgabe1/src/comments.txt");
 
@@ -49,10 +54,17 @@ public class CommentsCounter {
 
             long countNew = Files
                     .lines(path)
-                   // .map(lines -> convertStringToComment(search))
                     .filter(lines -> searchPattern.matcher(lines).find())
+                    //.map(lines -> convertStringToComment(lines))
                     .count();
             return countNew;
+
+
+             /* long count = stringList
+                .stream()
+                .filter(s -> searchPattern.matcher(s).find())
+                .count();
+            */
 
             /*
             long countNew = Files
