@@ -61,7 +61,7 @@ public class Comments {
 
         System.out.println("Es gab: " + commentsList.size() + " viele Eintraege");
         System.out.println("Der aelteste Eintrag lautet: " + commentsList.get(commentsList.size() - 1).getName());
-        System.out.print("Count von StringList: " + counter.countComments(529590,"2010-02-09T04:05:20.777+0000", "2013-11-22T10:13:15,915+0000"));
+        System.out.print("Count von StringList: " + counter.countComments(529590,"2010-02-09T04:05:20.777+0000", "2012-11-22T10:13:15,915+0000"));
 
         //System.out.println("Max Values: "+maxValues);
         //counter.initCommentsCounter(commentsList);
