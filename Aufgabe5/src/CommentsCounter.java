@@ -3,7 +3,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.regex.Pattern;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class CommentsCounter {
 
@@ -29,12 +32,13 @@ public class CommentsCounter {
 
     //System.out.println("Long Time: "+time);
 
-           comment.setTime(time);
-           comment.setName(s);
-           commentsList.add(comment);
+            comment.setTime(time);
+            comment.setName(s);
+            commentsList.add(comment);
 
-           System.out.println("FromTime: "+time);
-           return commentsList;
+            System.out.println("FromTime: " + time);
+
+        return commentsList;
     }
 
     long countComments(long id, String from, String to) throws IOException {
@@ -59,15 +63,18 @@ public class CommentsCounter {
 
 
 
-
+        int i = 0;
         try{
             long countNew = Files
                     .lines(path)
-                    //.filter(lines -> searchPattern.matcher(lines).find())
+                    .filter(lines -> searchPattern.matcher(lines).find())
                     .map(lines -> convertStringToComment(lines, commentsList))
-                    .filter(lines -> lines  <= longTime)
+                    .filter(lines -> commentsList.get(i).getTime() <= longTime)
                     .count();
 
+                    //.filter(lines -> searchPattern.matcher((CharSequence) lines).find())
+                    //.filter(lines -> lines <= longTime)
+            //.filter(lines -> searchPattern.matcher(lines).find())
             System.out.println("Long Time:"+longTime);
             return countNew;
              /* long count = stringList
