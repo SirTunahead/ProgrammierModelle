@@ -1,0 +1,82 @@
+ a)
+(last "ABCD")
+
+b)
+user=> (clojure.string/upper-case "MiXeD cAsE"))
+
+c)
+
+(defn parse-int [s]
+   (Integer. (re-find  #"\d+" s )))
+
+
+(defn by2? [v] (= 0 (mod v 2)))
+
+(by2?  (parse-int "11"))
+
+d)
+
+(defn divide [a b]
+	(print"result: \n("  (int(/ a b))) (print " ") (print (mod a b) ")\n"))
+	
+	
+(divide 7 3)
+
+e)
+
+(defn sumdiff [a b]
+		(print"\n("(+ a b)) (print " ") (print (- a b) ")\n"))
+
+(sumdiff 2 3)
+
+f)
+
+(defn exp [x n]
+  (reduce * (repeat n x)))
+
+(defn sumdiff [a b]
+		(print"\n("(+ a b)) (print " ") (print (- a b) ")\n"))
+
+(defn solve [p q]
+  (def firstPart (/ (- p) 2))
+  (def secondPart (- (exp (/ p 2) 2) q))
+  (sumdiff firstPart (Math/sqrt secondPart))
+  )
+
+ (solve 4 4)
+
+
+Aufgabe 2
+
+(defn parse-int [s]
+   (Integer. (re-find  #"\d+" s )))
+
+(defn binary? [v] (= 0 (mod v 4)))
+
+
+(binary? (parse-int "1111110000"))
+(binary? (parse-int "1111110001"))
+(binary? (parse-int "0"))
+(binary? (parse-int "XXXX10000"))
+
+
+Aufgabe 3
+
+(defn sumdividers [v]
+  (loop [i 0
+         sum 0]
+    (if (> v i)
+       (recur (inc i)
+              (if (or (zero? (rem i 3)) (zero? (rem i 5)))
+                (+ sum  i)
+                sum))
+        sum)))
+
+(sumdividers 4)
+
+
+Aufgabe 4
+
+(defn perfect?[i]( = (sumdividers i) i))
+(perfect? 6)
+(perfect? 7)
